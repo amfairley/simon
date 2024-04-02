@@ -12,9 +12,18 @@ function newGame() {
     game.playerMoves = [];
     game.currentGame = [];
     showScore();
+    addTurn();
 }
 
 // addTurn()
+function addTurn() {
+    // clear player moves array
+    game.playerMoves = [];
+    // make random number 0-3, pick the index of this value and add to current game
+    game.currentGame.push(game.choices[Math.floor(Math.random()*4)]);
+    // showTurns() to display the sequence
+    // showTurns();
+}
 
 // showTurns()
 
@@ -31,5 +40,6 @@ function showScore() {
 module.exports = {
     game,
     newGame,
-    showScore
+    showScore,
+    addTurn
 };
