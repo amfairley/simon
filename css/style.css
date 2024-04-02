@@ -2,6 +2,7 @@ body {
     font-family: Montserrat, sans-serif;
 }
 
+/* Headings */
 h1 {
     font-weight: 300;
     margin-bottom: 10px;
@@ -12,6 +13,7 @@ h2 {
     margin-top: 10px;
 }
 
+/* Game elements */
 .container {
     position: relative;
     width: 500px;
@@ -86,6 +88,7 @@ h2 {
     font-weight: 600;
 }
 
+/* Colour change when playing the gamne */
 .light {
     opacity: 0.4;
 }
