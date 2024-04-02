@@ -6,6 +6,13 @@ let game = {
     choices: ["button1", "button2", "button3", "button4"],
 }
 // newGame()
+// Set score to zero, clear the game object currentGame and playerMoves
+function newGame() {
+    game.score = 0;
+    game.playerMoves = [];
+    game.currentGame = [];
+    showScore();
+}
 
 // addTurn()
 
@@ -16,8 +23,13 @@ let game = {
 // playerTurn()
 
 // showScore()
+function showScore() {
+    document.getElementById('score').innerText= game.score;
+}
 
 // Export functions to test
 module.exports = {
-    game
+    game,
+    newGame,
+    showScore
 };
