@@ -3,7 +3,7 @@
  */
 
 // Import functions
-const {game, newGame, showScore, addTurn} = require("../game");
+const {game, newGame, showScore, addTurn, lightsOn} = require("../game");
 
 beforeAll(() => {
     // fs library is part of node's default standard library
@@ -89,5 +89,10 @@ describe("gameplay works correctly", () => {
     test("check addTurn adds a new element to the currentGame array", () => {
         addTurn();
         expect(game.currentGame.length).toEqual(2);
+    });
+    test("should add correct class to button to light it up", () => {
+        let button = document.getElementById(game.currentGame[0]);
+        lightsOn(game.currentGame[0]);
+        expect(button.classList).toContain("light");
     });
 })

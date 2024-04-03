@@ -28,7 +28,12 @@ function addTurn() {
 // showTurns()
 
 // lightsOn()
-
+function lightsOn(circ) {
+    document.getElementById(circ).classList.add("light");
+    setTimeout(() => {
+        document.getElementById(circ).classList.remove("light");
+    }, 400);
+}
 // playerTurn()
 
 // showScore()
@@ -41,5 +46,6 @@ module.exports = {
     game,
     newGame,
     showScore,
-    addTurn
+    addTurn,
+    lightsOn
 };
