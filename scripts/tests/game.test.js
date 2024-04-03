@@ -3,7 +3,7 @@
  */
 
 // Import functions
-const {game, newGame, showScore} = require("../game");
+const {game, newGame, showScore, addTurn} = require("../game");
 
 beforeAll(() => {
     // fs library is part of node's default standard library
@@ -61,12 +61,33 @@ describe("newGame function works as expected", () => {
     test("newGame() resets playerMoves", () => {
         expect(game.playerMoves.length).toBe(0);
     })
-    // Test 3: newGame() should reset the currentGame
-    test("newGame() resets currentGame", () => {
-        expect(game.currentGame.length).toBe(0);
+    // Test 3: should be 1 thing in the current game array
+    test("should be one move in the computers game array", () => {
+        expect(game.currentGame.length).toBe(1);
     })
     // Test 4: Element with id of score should display 0
     test("element with id score displays 0", () => {
         expect(document.getElementById('score').innerText).toEqual(0);
     })
+})
+
+// Gameplay
+describe("gameplay works correctly", () => {
+    beforeEach(() => {
+        game.score = 0;
+        game.currentGame = [];
+        game.playerMoves = [];
+        addTurn();
+    });
+    // After each to reset after every test
+    afterEach(() => {
+        game.score = 0;
+        game.currentGame = [];
+        game.playerMoves = [];
+    });
+    // Check that addTurn() works
+    test("check addTurn adds a new element to the currentGame array", () => {
+        addTurn();
+        expect(game.currentGame.length).toEqual(2);
+    });
 })
