@@ -63,7 +63,19 @@ function lightsOn(circ) {
         document.getElementById(circ).classList.remove("light");
     }, 400);
 }
-// playerTurn()
+// playerTurn() Check if move matches move in computer, carry on, if at the end increment the score and add another turn, if wrong alert
+function playerTurn() {
+    let i = game.playerMoves.length -1;
+    if (game.currentGame[i] === game.playerMoves[i]) {
+        if (game.currentGame.length === game.playerMoves.length) {
+            game.score ++;
+            showScore();
+            addTurn();
+        }
+    } else {
+        alert("Wrong move!");
+    }
+}
 
 // showScore()
 function showScore() {
@@ -77,5 +89,6 @@ module.exports = {
     showScore,
     addTurn,
     lightsOn,
-    showTurns
+    showTurns,
+    playerTurn
 };
