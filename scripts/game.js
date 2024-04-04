@@ -12,6 +12,24 @@ function newGame() {
     game.score = 0;
     game.playerMoves = [];
     game.currentGame = [];
+    // Get all circles
+    for (let circle of document.getElementsByClassName("circle")) {
+        // If the data-listener is set to false
+        if(circle.getAttribute("data-listener") !== "true") {
+            // Add event listener and include event (e)
+            circle.addEventListener("click", (e) => {
+                // Get the element ID (button1,2,3,4) and store it as variable
+                let move = e.target.getAttribute("id");
+                // Call lights on function
+                lightsOn(move);
+                // Push move into playerMoves
+                game.playerMoves.push(move);
+                playerTurn();
+            });
+            // Then set data listener to true
+            circle.setAttribute("data-listener", "true");
+        }
+    }
     showScore();
     addTurn();
 }
